@@ -11,7 +11,7 @@
 
 body {
   margin: 0;
-  font-family: "Aref Ruqaa", "Reem Kufi Fun", 'Cairo', sans-serif;
+  font-family: "Aref Ruqaa", sans-serif;
   background-color: #f0f0f0;
   color: #333;
   direction: rtl; /* لجعل النصوص تبدأ من اليمين */
@@ -82,6 +82,12 @@ body {
   font-weight: bold;
   font-size: 80px; }
 
+
+  @media (max-width: 600px) {
+    .name {
+      font-size: 40px; /* Font size for screens 600px or less */
+    }
+  }
 .bride {
   color: #e91e63; /* لون خاص بالعروس */
   display: flex;
