@@ -1,7 +1,13 @@
 {
   "version": 2,
   "builds": [
-    { "src": "uiux/package.json", "use": "@vercel/node" }
+    {
+      "src": "uiux/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "uiux/dist"
+      }
+    }
   ],
   "routes": [
     {
