@@ -54,6 +54,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import './Messages.css'; // Import the CSS file
+import { BASE_URL } from './baseURL';
 
 function MessagesPage({ token }) {
   const [messages, setMessages] = useState([]);
@@ -61,7 +62,7 @@ function MessagesPage({ token }) {
 
   const fetchMessages = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/messages', {
+      const response = await axios.get(`${BASE_URL}/messages`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       setMessages(response.data);

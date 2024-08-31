@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css'; // Import the CSS file
+import { BASE_URL } from './baseURL';
 
 function Login({ setToken }) {
   const [username, setUsername] = useState('');
@@ -10,7 +11,7 @@ function Login({ setToken }) {
 
   const login = async () => {
     try {
-      const response = await axios.post('http://localhost:5000/login', { username, password });
+      const response = await axios.post(`${BASE_URL}/login`, { username, password });
       setToken(response.data.token);
       navigate('/show-messages'); // Navigate to the messages page on successful login
     } catch (error) {

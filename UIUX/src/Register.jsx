@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BASE_URL } from './baseURL';
 
 function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const register = async () => {
-    await axios.post('http://localhost:5000/register', { username, password });
+    await axios.post(`${BASE_URL}/register`, { username, password });
   };
 
   return (

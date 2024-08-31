@@ -1,0 +1,1 @@
+export const BASE_URL = "https://be-production-43e6.up.railway.app"

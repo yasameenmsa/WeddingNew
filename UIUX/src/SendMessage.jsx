@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SendMessage.css'; // استيراد ملف CSS
+import { BASE_URL } from './baseURL';
+
 
 function SendWeddingMessagePage() {
   const [name, setName] = useState('');
@@ -13,13 +15,14 @@ function SendWeddingMessagePage() {
   const sendMessage = async () => {
     setIsLoading(true);
     try {
-      await axios.post('http://localhost:5000/messages', { name, email, message });
+      await axios.post(`${BASE_URL}/messages`, { name, email, message });
       setResponseMessage('وصلتنا رسالتك الجميلة مثلك شكراً ❤︎');
       setStatus('success');
       setName('');
       setEmail('');
       setMessage('');
     } catch (error) {
+      console.log('error', error)
       setResponseMessage('ما في عندك نت الآن\nرجاء حاولي إرسال الرسالة مرة ثانية لما تكوني بمكان في إنترنت\nتهمنا جداً رسائلكم الجميلة شكراً');
       setStatus('error');
     } finally {
