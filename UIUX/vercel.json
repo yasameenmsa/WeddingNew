@@ -1,22 +1,12 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      },
-      "buildCommand": "npx vite build"
-    }
+    { "src": "uiux/package.json", "use": "@vercel/node" }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "uiux/$1"
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
